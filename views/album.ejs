@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head') %>
+</head>
+
+<body>
+    <%- include('partials/nav') %>
+
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col">
+                <a href="/albums" class="mt-4">
+                    &lt; Retour
+                </a>
+                <h1 class="mb-4">
+                    <%= album.title %>
+                </h1>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Ajouter une image
+                    </h5>
+
+                    <form method="post" action="/albums/<%= album._id %>" class="form-inline" enctype="multipart/form-data">
+                        <input type="file" name="image" class="form-control-file">
+
+                        <button type="submit" class="btn btn-primary mt-3">
+                            Ajouter
+                        </button>
+                    </form>
+
+                    
+                    <% if(errors.length) { %>
+                        <div class="alert alert-danger mt-4 mb-2" role="alert">
+                            <%= errors[0] %>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-4 g-4 mt-4">
+            <% album.images.forEach((image, index) => {%>
+                <div class="col">
+                    <div class="card">
+                        <img src="/uploads/<%= album._id%>/<%= image %>" alt="<%= image %>" class="card-img-top">
+                        <div class="card-body">
+                            <h5><%= image %></h5>
+                            <a href="/albums/<%= album._id %>/delete/<%= index %>">Supprimer</a>
+                        </div>
+                    </div>
+                </div>
+                
+            <% }) %>
+        </div>
+    </div>
+
+
+
+
+
+    <%- include('partials/scripts') %>
+</body>
+
+</html>

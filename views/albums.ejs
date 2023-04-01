@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head') %>
+</head>
+
+<body>
+    <%- include('partials/nav') %>
+
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col">
+                <h1>Mes albums</h1>
+                <a href="/albums/create" class="btn btn-primary mt-2 mb-4">
+                    Nouvel album
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col col-xs-12 col-sm-4">
+                <ul class="list-group">
+
+                    <% albums.forEach((album) => { %>
+                        
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <a href="/albums/<%= album._id %>"><%= album.title %></a>
+                            <a href="/albums/<%= album._id %>/delete" class="link-light badge bg-danger rounded-pill">
+                                Supprimer
+                            </a>
+                        </li>
+                    <% }) %>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <%- include('partials/scripts') %>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "phototheque",
+  "version": "1.0.0",
+  "description": "Application d'albums de photos",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Mohamed Faysal YAMEOGO",
+  "license": "ISC",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "express-session": "^1.17.3",
+    "mongoose": "^7.0.1",
+    "nodemon": "^2.0.21",
+    "rimraf": "^4.4.1"
+  }
+}
